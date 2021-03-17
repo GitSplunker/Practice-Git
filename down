@@ -1,0 +1,22 @@
+java installation:
+yum install java -1.8.0-openjdk-devel -y
+git : 
+yum install git -y
+jenkins:
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo yum install jenkins -y
+sudo service jenkins start
+service jenkins status
+Apache-maven :
+cd /opt
+sudo wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+sudo tar  -xvzf apache-maven-3.6.3-bin.tar.gz
+cd apache-maven
+vi /etc/profile.d/maven.sh
+-------------------------------------------------
+  export MAVEN_HOME=/opt/apache-maven-3.6.3
+  export PATH=$PATH:$MAVEN_HOME/bin
+-------------------------------------------------
+source /etc/profile.d/maven.sh
+mvn -version
